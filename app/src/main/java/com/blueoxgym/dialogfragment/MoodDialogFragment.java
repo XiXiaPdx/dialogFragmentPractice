@@ -1,6 +1,7 @@
 package com.blueoxgym.dialogfragment;
 
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,6 +37,9 @@ public class MoodDialogFragment extends DialogFragment {
                 final RadioButton selectedRadioButton = (RadioButton) rootView.findViewById
                         (selectedId);
                 Log.d("testing", selectedRadioButton.getText().toString());
+                Intent intent = new Intent (getActivity(), MainActivity.class);
+                intent.putExtra("radio", selectedRadioButton.getText() );
+                startActivity(intent);
                 dismiss();
             }
         });
